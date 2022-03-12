@@ -1,18 +1,18 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 
 @Component({
   selector: "app-paginator",
   templateUrl: "./paginator.component.html",
   styleUrls: ["./paginator.component.scss"],
 })
-export class PaginatorComponent {
+export class PaginatorComponent{
   public pageLinkSize = 5;
 
   public pageLinks: number[] = [];
 
   @Input() public page = 1;
   @Input() public pagesCount = 0;
-  @Output() public onPageChange = new EventEmitter<{ page: number }>();
+  @Output() public pageChange$ = new EventEmitter<{ page: number }>();
 
   public isFirstPage(): boolean {
     return this.page === 0;
@@ -22,11 +22,11 @@ export class PaginatorComponent {
     return this.page === this.pagesCount - 1;
   }
 
-  public ngOnChanges(): void {
+  public getChanges(): void {
     this.pageLinks = [];
     const [start, end] = this.calculatePageLinkBoundaries();
 
-    for (let i = start; i <= end; ) {
+    for (let i = start; i <= end;) {
       this.pageLinks.push(++i);
     }
   }
@@ -60,8 +60,8 @@ export class PaginatorComponent {
 
   private changePage(page: number): void {
     if (page >= 0 && page < this.pagesCount) {
-      this.ngOnChanges();
-      this.onPageChange.emit({ page });
+      this.getChanges();
+      this.pageChange$.emit({page});
     }
   }
 }

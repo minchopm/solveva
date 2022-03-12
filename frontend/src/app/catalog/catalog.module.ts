@@ -1,12 +1,12 @@
-import { NgModule } from "@angular/core";
-import { CatalogComponent } from "./catalog.component";
-import { TableComponent } from "./particles/table/table.component";
-import { PaginatorComponent } from "./particles/paginator/paginator.component";
-import { CatalogStateModule } from "./state/catalog.state.module";
-import { CommonModule } from "@angular/common";
-import { ReactiveComponentModule } from "@ngrx/component";
-import { CatalogEffects } from "./state/catalog.effects";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import {NgModule} from "@angular/core";
+import {CatalogComponent} from "./catalog.component";
+import {TableComponent} from "./particles/table/table.component";
+import {PaginatorComponent} from "./particles/paginator/paginator.component";
+import {CatalogStateModule} from "./state/catalog.state.module";
+import {CommonModule} from "@angular/common";
+import {ReactiveComponentModule} from "@ngrx/component";
+import {CatalogEffects} from "./state/catalog.effects";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     CatalogStateModule,
     CommonModule,
     ReactiveComponentModule,
-    //  ReactiveFormsModule,
     NgbModule
   ],
   exports: [
@@ -28,4 +27,5 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     CatalogEffects
   ],
 })
-export class CatalogModule {}
+export class CatalogModule {
+}

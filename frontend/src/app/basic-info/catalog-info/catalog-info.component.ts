@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Store } from '@ngrx/store';
-import {CatalogState} from "../../catalog/state/catalog.reducer";
+import {Store} from '@ngrx/store';
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
@@ -10,7 +9,9 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class CatalogInfoComponent implements OnInit {
   @Input() data: any;
-  constructor(private store: Store) { }
+
+  constructor() {
+  }
 
   detailsForm = new FormGroup({
     id: new FormControl({value: '', disabled: true}),
@@ -18,6 +19,7 @@ export class CatalogInfoComponent implements OnInit {
     value: new FormControl(''),
     variant: new FormControl(0),
   });
+
   ngOnInit(): void {
     this.detailsForm.patchValue(this.data);
   }

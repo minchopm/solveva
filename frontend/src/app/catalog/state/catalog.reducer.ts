@@ -1,6 +1,6 @@
-import { createReducer, on } from "@ngrx/store";
-import { Content } from "../interfaces/content";
-import { fetchElement, fetchPageSucceeded } from "./catalog.actions";
+import {createReducer, on} from "@ngrx/store";
+import {Content} from "../interfaces/content";
+import {fetchElement, fetchPageSucceeded} from "./catalog.actions";
 
 export interface CatalogState {
   content: Content[];
@@ -15,7 +15,7 @@ export interface ElementState {
   variant: number
 }
 
-const initialState: CatalogState = { content: [], page: 0, totalPages: 0 };
+const initialState: CatalogState = {content: [], page: 0, totalPages: 0};
 
 export const catalogReducer = createReducer<CatalogState>(
   initialState,
@@ -28,13 +28,14 @@ export const catalogReducer = createReducer<CatalogState>(
 );
 
 
-const initialElementState: ElementState = { id: 0, name: '', value: '', variant: 0};
+const initialElementState: ElementState = {id: 0, name: '', value: '', variant: 0};
 
 export const elementReducer = createReducer<ElementState>(
   initialElementState,
-  on(fetchElement, (state, action) =>  {
-    return{
-    ...state,
-    id: action.id
-  }})
+  on(fetchElement, (state, action) => {
+    return {
+      ...state,
+      id: action.id
+    }
+  })
 );

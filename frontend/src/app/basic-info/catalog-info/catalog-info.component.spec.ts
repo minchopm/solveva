@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CatalogInfoComponent } from './catalog-info.component';
+import {CatalogInfoComponent} from './catalog-info.component';
 
 describe('CatalogInfoComponent', () => {
   let component: CatalogInfoComponent;
@@ -8,9 +8,9 @@ describe('CatalogInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatalogInfoComponent ]
+      declarations: [CatalogInfoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

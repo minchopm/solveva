@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { Store } from "@ngrx/store";
+import {Component, OnInit} from "@angular/core";
+import {Store} from "@ngrx/store";
 import {
   selectCurrentPage,
   selectData,
   selectTotalPages,
 } from "./state/selectors";
-import { fetchPage } from "./state/catalog.actions";
+import {fetchPage} from "./state/catalog.actions";
 
 @Component({
   selector: "app-catalog",
@@ -17,10 +17,11 @@ export class CatalogComponent implements OnInit {
   page$ = this.store.select(selectCurrentPage);
   pagesCount$ = this.store.select(selectTotalPages);
 
-  constructor(private store: Store) {}
+  constructor(private store: Store) {
+  }
 
   ngOnInit() {
-    this.store.dispatch(fetchPage({ page: 0 }));
+    this.store.dispatch(fetchPage({page: 0}));
   }
 
   fetchPage(event: { page: number }) {

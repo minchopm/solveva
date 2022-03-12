@@ -1,5 +1,5 @@
-import { createAction, props } from "@ngrx/store";
-import { Content } from "../interfaces/content";
+import {createAction, props} from "@ngrx/store";
+import {Content} from "../interfaces/content";
 
 export const fetchPage = createAction(
   "[Data] Fetch page",

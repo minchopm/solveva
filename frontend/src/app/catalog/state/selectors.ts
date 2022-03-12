@@ -1,5 +1,5 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { CatalogState } from "./catalog.reducer";
+import {createFeatureSelector, createSelector} from "@ngrx/store";
+import {CatalogState} from "./catalog.reducer";
 
 const selectCatalog = createFeatureSelector<CatalogState>("CATALOG");
 const selectElement = createFeatureSelector<CatalogState>("ELEMENT");

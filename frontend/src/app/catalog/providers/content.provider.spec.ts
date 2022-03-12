@@ -1,5 +1,5 @@
-import { ContentProvider } from "./content.provider";
-import { createHttpFactory, SpectatorHttp } from "@ngneat/spectator";
+import {ContentProvider} from "./content.provider";
+import {createHttpFactory, SpectatorHttp} from "@ngneat/spectator";
 
 describe("DataProviderService", () => {
   let spectator: SpectatorHttp<ContentProvider>;
