@@ -1,25 +1,21 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {CatalogInfoComponent} from './catalog-info.component';
+import {createHostFactory, SpectatorHost} from "@ngneat/spectator";
+import {of} from "rxjs";
+
 
 describe('CatalogInfoComponent', () => {
-  let component: CatalogInfoComponent;
-  let fixture: ComponentFixture<CatalogInfoComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [CatalogInfoComponent]
-    })
-      .compileComponents();
-  });
+  let spectator: SpectatorHost<CatalogInfoComponent>;
+  const createHost = createHostFactory(CatalogInfoComponent);
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CatalogInfoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createHost(`<app-catalog-info [data]="data"></app-catalog-info>`, {
+      hostProps: {
+        data: of({id: 1})
+      }
+    });
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should set value of input', () => {
+    expect((spectator.query('input') as HTMLInputElement).value).toBe('');
   });
 });
